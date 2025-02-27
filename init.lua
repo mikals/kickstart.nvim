@@ -389,6 +389,9 @@ require('lazy').setup({
         --   },
         -- },
         -- pickers = {}
+        defaults = {
+          layout_strategy = 'vertical',
+        },
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
@@ -920,6 +923,15 @@ require('lazy').setup({
     --    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
     --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
     --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+  },
+  {
+    'preservim/nerdtree',
+    config = function()
+      vim.keymap.set('n', '<C-d>', ':NERDTreeFind<CR>', { noremap = true, silent = true })
+      vim.keymap.set('n', '<C-f>', ':NERDTreeFocus<CR>', { noremap = true, silent = true })
+      vim.keymap.set('n', '<C-n>', ':NERDTree<CR>', { noremap = true, silent = true })
+      vim.keymap.set('n', '<C-t>', ':NERDTreeToggle<CR>', { noremap = true, silent = true })
+    end,
   },
 
   -- The following comments only work if you have downloaded the kickstart repo, not just copy pasted the
